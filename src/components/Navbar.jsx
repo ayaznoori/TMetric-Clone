@@ -74,9 +74,9 @@ import {
                 color: 'rgb(48,112,240)'
               }}
               variant={'link'}
-              href={'#'}
+              href={'/login'}
               >
-              Sign In
+              Log In
             </Button>
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
@@ -84,7 +84,7 @@ import {
               fontWeight={600}
               variant={'outline'}
               color={'rgb(48,112,240)'}
-              href={'#'}
+              href={'/signup'}
               _hover={{
                 bg: 'rgb(48,112,240)', color: 'white'
               }}>
