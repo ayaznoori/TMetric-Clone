@@ -79,6 +79,7 @@ import {
               Log In
             </Button>
             <Button
+              as={'a'}
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'md'}
               fontWeight={600}

@@ -1,14 +1,17 @@
 .loginContainer {
     width: 100%;
-    padding-top: 30px;
+    padding-top: 100px;
     text-align: center;
-    background-color: rgb(253, 254, 255);
+    background-color: rgb(246,247,248);;
+    padding-bottom: 200px;
 }
 .loginContainer_1 {
-    width: 30%;
+    width: 25%;
     border: 1px solid rgb(212, 204, 204);
     margin: auto;
     border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: white;
 }
 .loginContainer_2 {
     width: 100%;
@@ -17,10 +20,11 @@
     text-align: center;
     background-color: rgb(242,245,252);
     padding-bottom: 20px;
+    border-radius: 5px;
 }
 .loginContainer_2 > p {
   font-size: larger;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .loginContainer_3 {
@@ -29,9 +33,11 @@
     border: 1px solid none;
     padding: 5%;
     background-color: rgb(255, 255, 255);
+    border-radius: 5px;
 }
 
   /* Text Center Line */
+
 .lineText > p {
     display: flex;
     flex-direction: row;
@@ -59,17 +65,15 @@
       display: flex;
       justify-content: space-between;
       color: blue;
-      padding-top: 5px;
+      padding-top: 10px;
    }
 
    /* Privacy */
 
    .privacy > a {
-      font-size: 12px;
+      font-size: 13px;
       color: blue;
-      margin: 5%;
    }
-
    span{
       padding-right: 10px;
     }
