@@ -16,12 +16,12 @@ function App() {
           <Routes>
               <Route path='/' element={<Homepage/>}/>
               <Route path='/dashboard/:user' element={<Dashboard/>}/>
-              <Route path='/login' element={<Login/>}/>
-              <Route path='/signup' element={<Signup/>}/>
+              <Route path='/login' element={<Login />}/>
+              <Route path='/signup' element={<Signup />}/>
               <Route path='/contact' element={<Contact/>}/>
               <Route path='/Pricing' element={<Pricing/>}/>
           </Routes>
-          <Footer/>
+          {/* <Footer/> */}
     </div>
   );
 }
