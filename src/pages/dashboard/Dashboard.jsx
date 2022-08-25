@@ -22,6 +22,7 @@ import {
     Button
   
 } from '@chakra-ui/react'
+import Task from './Task/Task';
 // import Sidebar from './sidebar';
 const Dashboard = () => {
   return (
@@ -176,12 +177,13 @@ const Dashboard = () => {
           
           </Accordion>
         </Stack>
-        <div className='container'  >
-        <h3>hello this is window</h3>
-        </div>
-      </div>
+        <div className='container'    >
+            <Task />
+           <h3>hello this is window</h3>
+         </div>
+     </div>
       
-    </div>
+  </div>
   )
 }
 
