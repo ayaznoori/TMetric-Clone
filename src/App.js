@@ -14,15 +14,18 @@ import Team from './components/Team';
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/dashboard/:user" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/Pricing" element={<Pricing />} />
-      </Routes>
-      <Footer />
+
+       
+          <Routes>
+             
+              <Route path='/' element={<><Navbar/><Homepage/> <Footer/></>}/>
+              <Route path='/dashboard/:user' element={<Dashboard/>}/>
+              <Route path='/login' element={<><Navbar/><Login /><Footer/></>}/>
+              <Route path='/signup' element={<><Navbar/><Signup /><Footer/></>}/>
+              <Route path='/contact' element={<><Navbar/><Contact/><Footer/></>}/>
+              <Route path='/Pricing' element={<><Navbar/><Pricing/><Footer/></>}/>
+          </Routes>
+
     </div>
   );
 }
