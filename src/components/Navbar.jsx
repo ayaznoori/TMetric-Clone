@@ -27,7 +27,7 @@ import {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
-      <Box>
+      <Box position={'fixed'} width='100%' zIndex='9999'>
         <Flex
           bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
@@ -74,17 +74,18 @@ import {
                 color: 'rgb(48,112,240)'
               }}
               variant={'link'}
-              href={'#'}
+              href={'/login'}
               >
-              Sign In
+              Log In
             </Button>
             <Button
+              as={'a'}
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'md'}
               fontWeight={600}
               variant={'outline'}
               color={'rgb(48,112,240)'}
-              href={'#'}
+              href={'/signup'}
               _hover={{
                 bg: 'rgb(48,112,240)', color: 'white'
               }}>
