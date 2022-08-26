@@ -30,7 +30,7 @@ const Login = () => {
 
             <Button padding={3} variant='outline' borderRadius={4} width='100%' size='xs' color='gray' marginBottom={4} colorScheme='gray'> <span><img width={15} src="https://w7.pngwing.com/pngs/249/19/png-transparent-google-logo-g-suite-google-guava-google-plus-company-text-logo.png" alt="google" /></span> <a href="https://www.google.com/">Log in the Google</a></Button>
             <Button padding={3} variant='outline' borderRadius={4} width='100%' size='xs' color='gray' marginBottom={4} colorScheme='gray'> <span><img width={10} src="https://companieslogo.com/img/orig/MSFT-a203b22d.png?t=1633073277" alt="microsoft" /></span> <a href="https://www.microsoft.com/en-in/">Log in the Microsoft</a></Button>
-            <Button padding={3} variant='outline' borderRadius={4} width='100%' size='xs' color='gray' marginBottom={4} colorScheme='gray'> <span><img width={15} src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c516.png" alt="apple" /></span> <a href="https://www.apple.com/">Log in the Apple</a></Button>
+            <Button padding={3} variant='outline' borderRadius={4} width='100%' size='xs' color='gray' marginBottom={4} colorScheme='gray'> <span><img width={15} src="https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png" alt="apple" /></span> <a href="https://www.apple.com/">Log in the Apple</a></Button>
             <hr />
             <div className={style.bottomSlide}>
               <a href=""><Text>Can't Log In?</Text></a>
