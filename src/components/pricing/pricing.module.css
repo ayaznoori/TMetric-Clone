@@ -1,0 +1,61 @@
+.header_pricing_container{
+    width: 100%;
+    height: 400px;
+    background-color: #e8edff;
+    border: 1px solid #e8edff;
+}
+.pricing_text_div{
+    font-size: 60px;
+    font-weight: 800;
+    margin: auto;
+    text-align: center;
+    margin-top: 9%;
+    margin-bottom:1%;
+    padding-bottom: 10px;
+}
+.pricing_sub_text_div{
+    font-size:18px;
+    margin: auto;
+    text-align: center;
+    font-weight: 600;
+}
+.billing_buttons_container{
+    width: 90%;
+    margin: auto;
+    border: 1px solid #e4e8ed;
+    border-radius: 10px;
+    height: 80px;
+    margin-top: 30px;
+    display: flex;
+justify-content: space-evenly;
+}
+.billing_switch_container{
+    display:flex;
+    border-right:1px solid #e4e8ed;
+    padding-top: 20px;
+    padding-left: 30px;
+    width: 23%;
+    font-size:18px;
+    font-weight:600;
+    gap: 10px;
+}
+.billing_team_members_container{
+    display: flex;
+    width: 65%;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 20px;
+    padding-top: 20px;
+}
+.price_card_container{
+    width:90%;
+    border:1px solid black;
+    height:auto;
+    margin:auto;
+    display: flex;
+    justify-content: space-between;
+}
+.price_card_business{
+    width:30%;
+    border:1px solid black
+}

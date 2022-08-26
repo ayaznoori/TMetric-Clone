@@ -8,12 +8,13 @@ import Dashboard from './pages/dashboard/Dashboard';
 import Footer from './components/Footer';
 import Login from './pages/Register/Login/Login';
 import Signup from './pages/Register/Signup/Signup';
+import PricingComponent from './components/pricing/PricingComponent';
 
 function App() {
   return (
     <div className="App">
        
-          <Routes>
+          {/* <Routes>
              
               <Route path='/' element={<><Navbar/><Homepage/> <Footer/></>}/>
               <Route path='/dashboard/:user' element={<Dashboard/>}/>
@@ -21,7 +22,8 @@ function App() {
               <Route path='/signup' element={<><Navbar/><Signup /><Footer/></>}/>
               <Route path='/contact' element={<><Navbar/><Contact/><Footer/></>}/>
               <Route path='/Pricing' element={<><Navbar/><Pricing/><Footer/></>}/>
-          </Routes>
+          </Routes> */}
+          <PricingComponent/>
         
     </div>
   );
