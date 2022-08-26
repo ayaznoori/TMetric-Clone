@@ -12,16 +12,17 @@ import Signup from './pages/Register/Signup/Signup';
 function App() {
   return (
     <div className="App">
-          {/* <Navbar/> */}
+       
           <Routes>
-              <Route path='/' element={<Homepage/>}/>
+             
+              <Route path='/' element={<><Navbar/><Homepage/> <Footer/></>}/>
               <Route path='/dashboard/:user' element={<Dashboard/>}/>
-              <Route path='/login' element={<Login />}/>
-              <Route path='/signup' element={<Signup />}/>
-              <Route path='/contact' element={<Contact/>}/>
-              <Route path='/Pricing' element={<Pricing/>}/>
+              <Route path='/login' element={<><Navbar/><Login /><Footer/></>}/>
+              <Route path='/signup' element={<><Navbar/><Signup /><Footer/></>}/>
+              <Route path='/contact' element={<><Navbar/><Contact/><Footer/></>}/>
+              <Route path='/Pricing' element={<><Navbar/><Pricing/><Footer/></>}/>
           </Routes>
-          {/* <Footer/> */}
+        
     </div>
   );
 }
