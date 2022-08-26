@@ -14,7 +14,6 @@ function App() {
     <div className="App">
        
           <Routes>
-             
               <Route path='/' element={<><Navbar/><Homepage/> <Footer/></>}/>
               <Route path='/dashboard/:user' element={<Dashboard/>}/>
               <Route path='/login' element={<><Navbar/><Login /><Footer/></>}/>
@@ -24,7 +23,10 @@ function App() {
           </Routes>
         
     </div>
+
   );
 }
 
 export default App;
+
+ 
