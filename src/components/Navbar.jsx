@@ -54,7 +54,7 @@ import {
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start'  }} gap='100px' paddingLeft={'80px'} >
             
-               <Img src="https://tmetric.com/images/v3/tmetric_logo_with_text.svg" alt="logo"/>
+               <Link href='/'><Img src="https://tmetric.com/images/v3/tmetric_logo_with_text.svg" alt="logo"/></Link>
 
             <Flex display={{ base: 'none', md: 'flex' }} ml={10} paddingRight="50px">
               <DesktopNav />
