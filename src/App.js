@@ -1,21 +1,17 @@
-
-import './App.css';
-import Navbar from './components/Navbar';
-import {Routes,Route} from 'react-router-dom';
-import Contact from './pages/contacts/Contact';
-import Homepage from './pages/homepage/Homepage';
-import Pricing from './pages/pricing/Pricing';
-import Dashboard from './pages/dashboard/Dashboard';
-import Footer from './components/Footer';
-import Login from './pages/Register/Login/Login';
-import Signup from './pages/Register/Signup/Signup';
-import Team from './components/Team';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
+import Contact from "./pages/contacts/Contact";
+import Homepage from "./pages/homepage/Homepage";
+import Pricing from "./pages/pricing/Pricing";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Footer from "./components/Footer";
+import Login from "./pages/Register/Login/Login";
+import Signup from "./pages/Register/Signup/Signup";
 
 function App() {
   return (
-    <div className="App">
-
-       
+    <div className="App">     
           <Routes>
              
               <Route path='/' element={<><Navbar/><Homepage/> <Footer/></>}/>
@@ -25,7 +21,6 @@ function App() {
               <Route path='/contact' element={<><Navbar/><Contact/><Footer/></>}/>
               <Route path='/Pricing' element={<><Navbar/><Pricing/><Footer/></>}/>
           </Routes>
-
     </div>
   );
 }
