@@ -12,7 +12,7 @@ import Signup from './pages/Register/Signup/Signup';
 function App() {
   return (
     <div className="App">
-          <Navbar/>
+          {/* <Navbar/> */}
           <Routes>
               <Route path='/' element={<Homepage/>}/>
               <Route path='/dashboard/:user' element={<Dashboard/>}/>
