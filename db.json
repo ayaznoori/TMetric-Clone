@@ -1,0 +1,134 @@
+{
+  "teams": [
+    {
+      "id": "",
+      "teamName": "Team Frontend",
+      "teamLead": "Chandler",
+      "teamMembers": [
+        {
+          "user": "Chandler",
+          "status": false,
+          "startedAt": "",
+          "FinishedAT": "",
+          "TotalTimeToday": "",
+          "currentTask": ""
+        },
+        {
+          "user": "John Todd",
+          "status": false,
+          "startedAt": "",
+          "FinishedAT": "",
+          "TotalTimeToday": "",
+          "currentTask": ""
+        },
+        {
+          "user": "Mark Simmons",
+          "status": false,
+          "startedAt": "",
+          "FinishedAT": "",
+          "TotalTimeToday": "",
+          "currentTask": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "teamName": "Team Backend",
+      "teamLead": "Joey",
+      "teamMembers": [
+        {
+          "user": "Joey",
+          "status": false,
+          "startedAt": "",
+          "FinishedAT": "",
+          "TotalTimeToday": "",
+          "currentTask": ""
+        },
+        {
+          "user": "Dustin",
+          "status": false,
+          "startedAt": "",
+          "FinishedAT": "",
+          "TotalTimeToday": "",
+          "currentTask": ""
+        },
+        {
+          "user": "Conor",
+          "status": false,
+          "startedAt": "",
+          "FinishedAT": "",
+          "TotalTimeToday": "",
+          "currentTask": ""
+        }
+      ]
+    }
+  ],
+  "teamMembers": [
+    {
+      "id":"chandler123",
+      "user": "Chandler",
+      "status": true,
+      "startedAt": "Did Not Work Today",
+      "FinishedAT": "",
+      "TotalTimeToday": "",
+      "currentTask": "",
+      "teamLead":"Chandler",
+      "teamId":"12345"
+    },
+    {
+      "id":"john123",
+      "user": "John Todd",
+      "status": false,
+      "startedAt": "Did Not Work Today",
+      "FinishedAT": "",
+      "TotalTimeToday": "",
+      "currentTask": "",
+      "teamLead":"Chandler",
+      "teamId":"12345"
+    },
+    {
+      "id":"mark123",
+      "user": "Mark Simmons",
+      "status": false,
+      "startedAt": "Did Not Work Today",
+      "FinishedAT": "",
+      "TotalTimeToday": "",
+      "currentTask": "",
+      "teamLead":"Chandler",
+      "teamId":"12345"
+    },
+    {
+      "id":"joey123",
+      "user": "Joey",
+      "status": false,
+      "startedAt": "Did Not Work Today",
+      "FinishedAT": "",
+      "TotalTimeToday": "",
+      "currentTask": "",
+      "teamLead":"Joey",
+      "teamId":"78910"
+    },
+    {
+      "id":"dustin123",
+      "user": "Dustin",
+      "status": false,
+      "startedAt": "Did Not Work Today",
+      "FinishedAT": "",
+      "TotalTimeToday": "",
+      "currentTask": "",
+      "teamLead":"Joey",
+      "teamId":"78910"
+    },
+    {
+      "id":"conor123",
+      "user": "Conor",
+      "status": true,
+      "startedAt": "Did Not Work Today",
+      "FinishedAT": "",
+      "TotalTimeToday": "",
+      "currentTask": "",
+      "teamLead":"Joey",
+      "teamId":"78910"
+    }
+  ]
+}
