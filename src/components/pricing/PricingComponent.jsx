@@ -12,13 +12,26 @@ import {
   SliderTrack,
   Switch,
 } from "@chakra-ui/react";
-import {TiTick} from "react-icons/ti"
-import React from "react";
+import { TiTick } from "react-icons/ti";
+import { ImCross } from "react-icons/im";
+import React, { useEffect, useState } from "react";
 import styles from "./pricing.module.css";
 
 const PricingComponent = () => {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
+  const [data, setData] = useState([]);
+  const [isMonthly, setIsMonthly] = useState(true);
+  console.log(value);
   const handleChange = (value) => setValue(value);
+  const handleSwitchChange = () => {
+    if(isMonthly == true){
+      setIsMonthly(false)
+    }
+    else{
+      setIsMonthly(true)
+    }
+  };
+  console.log(isMonthly)
   const benefits = [
     "Time Tracking",
     "Unlimited projects and clients",
@@ -42,6 +55,11 @@ const PricingComponent = () => {
     "Work Schedule",
     "Team Dashboard",
   ];
+  useEffect(() => {
+    fetch("http://localhost:8080/pricing")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
   return (
     <div>
       <div className={styles.header_pricing_container}>
@@ -55,7 +73,7 @@ const PricingComponent = () => {
       <div className={styles.billing_buttons_container}>
         <div className={styles.billing_switch_container}>
           <h4>Monthly</h4>
-          <Switch colorScheme="whatsapp" size="lg" />
+          <Switch onChange={handleSwitchChange} colorScheme="whatsapp" size="lg" />
           <h4>Annually</h4>
         </div>
         <div className={styles.billing_team_members_container}>
@@ -66,6 +84,8 @@ const PricingComponent = () => {
                 maxW="100px"
                 mr="2rem"
                 value={value}
+                defaultValue={value}
+                min={1}
                 onChange={handleChange}
               >
                 <NumberInputField />
@@ -81,6 +101,8 @@ const PricingComponent = () => {
                 onChange={handleChange}
                 maxW="60%"
                 marginLeft="25px"
+                defaultValue={value}
+                min={1}
               >
                 <SliderTrack>
                   <SliderFilledTrack />
@@ -93,23 +115,159 @@ const PricingComponent = () => {
       </div>
       <div className={styles.price_card_container}>
         <div className={styles.price_card_business}>
-          <h1>Business</h1>
-          <div>
-            <p>
-              $<b>21</b>/month
-            </p>
+          <h1 className={styles.set_categories_heading}>Business</h1>
+          <div className={styles.set_categories_price}>
+            {data.map((e, index) => {
+              if (value == data[index].team && isMonthly) {
+                return (
+                  <p>
+                    ${" "}
+                    <b
+                      style={{
+                        fontSize: "40px",
+                        color: "black",
+                        fontWeight: "700",
+                      }}
+                    >
+                      {data[index].business.monthly}
+                    </b>{" "}
+                    /month
+                  </p>
+                )
+              } else if(value==data[index].team && !isMonthly) {
+                return (
+                  <p>
+                    ${" "}
+                    <b
+                      style={{
+                        fontSize: "40px",
+                        color: "black",
+                        fontWeight: "700",
+                      }}
+                    >
+                      {data[index].business.annually}
+                    </b>{" "}
+                    /year
+                  </p>
+                );
+              }
+            })}
           </div>
           <div>
             {benefits.map((benefit) => (
               <div className={styles.business_card_benefit}>
-                <TiTick />
+                <TiTick color="green" />
                 {benefit}
               </div>
             ))}
           </div>
         </div>
-        <div className={styles.price_card_professional}></div>
-        <div className={styles.price_card_free}></div>
+        <div className={styles.price_card_professional}>
+          <h1 className={styles.set_categories_heading}>Professional</h1>
+          <div className={styles.set_categories_price}>
+            {data.map((e, index) => {
+              if (value == data[index].team && isMonthly) {
+                return (
+                  <p>
+                    ${" "}
+                    <b
+                      style={{
+                        fontSize: "40px",
+                        color: "black",
+                        fontWeight: "700",
+                      }}
+                    >
+                      {data[index].professional.monthly}
+                    </b>{" "}
+                    /month
+                  </p>
+                );
+              } else if(value==data[index].team && !isMonthly) {
+                return (
+                  <p>
+                    ${" "}
+                    <b
+                      style={{
+                        fontSize: "40px",
+                        color: "black",
+                        fontWeight: "700",
+                      }}
+                    >
+                      {data[index].professional.annually}
+                    </b>{" "}
+                    /year
+                  </p>
+                );
+              }
+            })}
+          </div>
+          <div>
+            {benefits.map((benefit, index) => {
+              if (index < 10) {
+                return (
+                  <div className={styles.professional_card_benefit}>
+                    <TiTick color="green" />
+                    {benefit}
+                  </div>
+                );
+              } else {
+                return (
+                  <div
+                    className={styles.professional_card_benefit}
+                    style={{ color: "grey" }}
+                  >
+                    <ImCross
+                      color="grey"
+                      size="13px"
+                      style={{ marginTop: "8px" }}
+                    />
+                    {benefit}
+                  </div>
+                );
+              }
+            })}
+          </div>
+        </div>
+        <div className={styles.price_card_free}>
+          <h1 className={styles.set_categories_heading}>Free</h1>
+          <div className={styles.set_categories_price}>
+            <p>
+              ${" "}
+              <b
+                style={{ fontSize: "40px", color: "black", fontWeight: "700" }}
+              >
+                0
+              </b>{" "}
+              /month
+            </p>
+          </div>
+          <div>
+            {benefits.map((benefit, index) => {
+              if (index < 4) {
+                return (
+                  <div className={styles.professional_card_benefit}>
+                    <TiTick color="green" />
+                    {benefit}
+                  </div>
+                );
+              } else {
+                return (
+                  <div
+                    className={styles.professional_card_benefit}
+                    style={{ color: "grey" }}
+                  >
+                    <ImCross
+                      color="grey"
+                      size="13px"
+                      style={{ marginTop: "8px" }}
+                    />
+                    {benefit}
+                  </div>
+                );
+              }
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
