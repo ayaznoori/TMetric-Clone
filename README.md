@@ -13,11 +13,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## My teammates are:
 
-1. Mohammad Ayaz Noori
+1. Mohammad Ayaz Noori (Team Lead)
 2. Shashank Kumar
 3. Cheta Sharma
 4. Shubham Kapoor
 5. Sagar Pawar
+
+### Team Manager
+
+* Amaresh Barik
 
 ## The Journey:
 
