@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./team.module.css";
-import { Input, InputGroup, InputLeftAddon, Select } from "@chakra-ui/react";
+import { Input, InputGroup, InputLeftAddon, Select,Box } from "@chakra-ui/react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { HiUserCircle } from "react-icons/hi";
 import { SearchIcon } from "@chakra-ui/icons";
@@ -33,7 +33,7 @@ const Team = () => {
       .then((users) => setData(users));
   }, []);
   return (
-    <div>
+    <Box w="80%" p="0.5rem">
       <div className={styles.team_container_main}>
         <div className={styles.team_all_dropdown_containter}>
           <Select
@@ -104,7 +104,7 @@ const Team = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Box>
   );
 };
 

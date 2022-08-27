@@ -12,6 +12,7 @@ import { Box } from '@chakra-ui/react'
 import Dashboard from "./dashboard/DashComponents/dashboard/Dashboard";
 import Time from "./dashboard/DashComponents/Time/Time";
 import Task from "./dashboard/DashComponents/Task/Task";
+import Team from "./dashboard/DashComponents/Team/Team";
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
               <Route path='/Pricing' element={<><Navbar/><Pricing/><Footer/></>}/>
               <Route path='/dashboard/time' element={<Box display={"flex"}><Dashboard/><Time/></Box>} ></Route>
               <Route path='/dashboard/task' element={<Box display={"flex"}><Dashboard/><Task/></Box>} ></Route>
-              <Route path='/dashboard/team' element={<Box display={"flex"}><Dashboard/></Box>} ></Route>
+              <Route path='/dashboard/team' element={<Box display={"flex"}><Dashboard/><Team/></Box>} ></Route>
           </Routes>
     </div>
 
