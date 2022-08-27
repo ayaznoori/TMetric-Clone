@@ -6,7 +6,6 @@ import {FaPlay} from "react-icons/fa"
 import {FaStop} from "react-icons/fa"
 
 import TimePicker from 'react-time-picker'
-import Clock from './Clock';
 import Menus from './Menus';
 import ActiveProject from './ActiveProject';
 
