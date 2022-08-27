@@ -39,7 +39,7 @@ const Dashboard = () => {
                   <BsStopwatch size="1.5rem"/>
                   <Link 
                   fontWeight={'550'} 
-                  to="/"
+                  to="/dashboard/time"
                   > Time</Link>
                   </Box>
                   </Button>
