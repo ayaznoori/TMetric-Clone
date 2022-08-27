@@ -36,10 +36,6 @@ const Login = () => {
      
   }
 
-  // if(l === true) {
-    
-  // }
-
   return (
     <div className={style.loginContainer}>
       <div  className={style.loginContainer_1}>
