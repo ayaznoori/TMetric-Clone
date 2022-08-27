@@ -1,84 +1,79 @@
 import React from 'react'
-import {Flex ,Stack} from "@chakra-ui/react"
 import  "./dashboard.css";
+import {Link} from "react-router-dom"
+import {BsStopwatch} from "react-icons/bs"
+import {BiNotepad} from "react-icons/bi"
+import {AiOutlineTeam} from "react-icons/ai"
 import {
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Stack,
   Box,
   Image,
   HStack,
-  
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    MenuGroup,
-    MenuDivider,
-    MenuOptionGroup,
-    MenuItemOption,
-    Button
-  
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  Button 
 } from '@chakra-ui/react'
-import Task from './Task/Task';
-// import Sidebar from './sidebar';
 const Dashboard = () => {
+ 
   return (
-    
-
-    <div >
-      {/* <br />
-      <br />
-      <br /> */}
       <div border="1px solid" className='main'>
-        <Stack  bgColor={"light grey "} w='20%' lineHeight={0}>
-          <HStack w='100%' justifyContent='center' h='100px'  p='0'  lh='1px' lineHeight={"0.1px"} mt='none' >
-            <Box w='7%' p='0' h='10px'   ><Image src='https://cdn-icons-png.flaticon.com/512/54/54532.png' w='100%' h='100%'  /></Box>
-            <Box  h='60px' ml='0' w='75%' border='1px red' mt='none' lineHeight={'0.1px'}>
-            <Image w='90%' h='80%' src={'https://comparecamp.com/media/uploads/2020/11/tmetric-logo.png'}  />
+        <Stack  bgColor={"light grey "}>
+          <HStack w='100%' justifyContent='center'  >
+            <Box w='55%'>
+            <Image src={'https://comparecamp.com/media/uploads/2020/11/tmetric-logo.png'}  />
             </Box>
-           
           </HStack>
-          
-        <Accordion  allowMultiple w='100%' justifyContent={'center'} bg='#f6f7f8' overflow='auto' >
-        
 
-            <AccordionItem border='none' h='31px' mb='10px' >
-              <h2 >
-                <AccordionButton  >
-                  <Box flex='1' ml='20px' display={'flex'} gap='20px'  >
-                  <img width='25px' height={'10px'} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgZOiUxzAlBLD8olJjdSvxccaH6hMHE5QGZA&usqp=CAU' />
-                    <Box fontWeight={'550'} mt='15px' > Time</Box>
-                  
-                   
+                <Box bg='#f6f7f8' mt="70px">
+                  <Box>
+                  <Button w="100%" bg='#f6f7f8'>
+                  <Box flex='4'    display={'flex'} gap='10px'  >
+                  <BsStopwatch size="1.5rem"/>
+                  <Link 
+                  fontWeight={'550'} 
+                  to="/dashboard/time"
+                  > Time</Link>
                   </Box>
-                  {/* <AccordionIcon /> */}
-                </AccordionButton>
-              </h2>
-              {/* <AccordionPanel >
-                <h3>Hello man</h3>
-              </AccordionPanel> */}
+                  </Button>
+                  </Box>
+                
+                  <Box>
+                  <Button w="100%" bg='#f6f7f8'>
+                    <Box flex='1' display={'flex'} gap='10px'  >
+                    <BiNotepad size="1.5rem"/>
+                    <Link 
+                    fontWeight={'550'} 
+                    to={'/dashboard/task'}
+                    > Task</Link>
+                    </Box>
+                  </Button>
+                  </Box>
+
+                  <Box>
+
+                  <Button w="100%" bg='#f6f7f8'>
+                    <Box flex='1' display={'flex'} gap='10px' >
+                    <AiOutlineTeam size="1.5rem"/>
+                    <Link 
+                    fontWeight={'550'}
+                    to={'/dashboard/team'}
+                    > Team</Link>
+                    </Box>
+                  </Button>
+
+                  </Box>
+                </Box>
               
-            </AccordionItem>
-
-            <AccordionItem>
-              <h2>
-                <AccordionButton border='none' h='31px' mb='10px' >
-                <Box flex='1' ml='20px' display={'flex'} gap='20px' mt='5px'  >
-                    <img width='25px' height={'10px'} src='https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/002/905/original/task.png' />
-                    <Box fontWeight={'550'} mt='15px' > Task</Box>
-                  
-                   
-                  </Box>
-                  {/* <AccordionIcon /> */}
-                </AccordionButton>
-              </h2>
-              {/* <AccordionPanel pb={4}>
-                hiii
-              </AccordionPanel> */}
-            </AccordionItem>
+           
+          <Accordion  allowMultiple w='100%' justifyContent={'center'} bg='#f6f7f8' overflow={"auto"}>
             <AccordionItem  >
               <h2>
                 <AccordionButton  >
@@ -166,24 +161,17 @@ const Dashboard = () => {
                 </MenuItem>
                 <MenuDivider />
                 <MenuItem minH="40px">
-                  
+              
                   <span>Logout</span>
                 </MenuItem>
               </MenuList>
             </Menu>
-
             </Stack>
             
           
           </Accordion>
         </Stack>
-        <div className='container'    >
-            <Task />
-           <h3>hello this is window</h3>
-         </div>
      </div>
-      
-  </div>
   )
 }
 
