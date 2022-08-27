@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import style from '../Login/Login.module.css'
+import  { useNavigate }  from 'react-router-dom'
 import {
   FormControl,
   FormLabel,
@@ -12,6 +13,8 @@ import {
 const axios = require('axios');
 
 const Login = () => {
+  let [l , setL] = useState(false)
+  let navigate = useNavigate()
 
   const [user, setUser] = useState({
     email:'',
@@ -29,7 +32,8 @@ const Login = () => {
 
   const login = () => {
     axios.post('http://localhost:9002/login', user)
-    .then(res => alert(res.data.message))
+    .then((res) => {alert(res.data.message); navigate('/dashboard/time')})
+     
   }
 
   return (
