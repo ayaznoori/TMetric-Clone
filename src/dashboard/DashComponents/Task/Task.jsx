@@ -39,6 +39,7 @@ const Task = () => {
    let b={
     id:v4(),
     iscompleted:false,
+    goingon:false,
     name:"",
     user:ss,
     
@@ -62,10 +63,19 @@ const Task = () => {
     setRef(a)
    
   }
-
+  let handlered=(a)=>{
+   console.log("its red");
+    let userwa = users.map((l,i)=>{
+      if(a==l.id){
+        l.goingon=!l.goingon
+      }
+      return l
+    })
+    setUsers(userwa);
+  }
   let f = ()=>{
     return (
-      <Add handlechange={handlechange} />
+      <Add handlechange={handlechange} users={users} />
     )
 
   }
@@ -154,7 +164,7 @@ const Task = () => {
             </Stack>
             <Stack  w='50%' h='100%' >
               {/* {handlefun()} */}
-              {users.length!==0 &&<Work wrk={users[ref]} handletoggle={handletoggle} />}
+              {users.length!==0 &&<Work wrk={users[ref]} handletoggle={handletoggle} handlered={handlered} />}
               {/* {ref.current!=null&& work[ref.current]} */}
             </Stack>
           </HStack>)}
