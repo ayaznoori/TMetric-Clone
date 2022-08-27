@@ -6,7 +6,7 @@ const Droplist1 = () => {
     <Flex width={'100%'}  paddingLeft='50px' columnGap='25px'>
             <VStack width='280px' padding='50px'>
                          <Box >
-                           <Text fontSize='20px' fontWeight='bold' color='grey'>Overview</Text>
+                           <Text fontSize='20px' fontWeight='bold' color='grey'>Apps</Text>
                            <br/>
                             <Link fontWeight='bold' >Industry</Link>
                             <Text>Made for all industries. Check benefits of usage</Text>

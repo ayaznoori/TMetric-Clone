@@ -19,10 +19,12 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  Button 
+  Button,
+  Text
 } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
- 
+ const navigate=useNavigate();
   return (
       <div border="1px solid" className='main'>
         <Stack  bgColor={"light grey "}>
@@ -34,25 +36,25 @@ const Dashboard = () => {
 
                 <Box bg='#f6f7f8' mt="70px">
                   <Box>
-                  <Button w="100%" bg='#f6f7f8'>
+                  <Button w="100%" bg='#f6f7f8' onClick={()=>navigate('/dashboard/time')}>
                   <Box flex='4'    display={'flex'} gap='10px'  >
                   <BsStopwatch size="1.5rem"/>
-                  <Link 
+                  <Text 
                   fontWeight={'550'} 
-                  to="/dashboard/time"
-                  > Time</Link>
+              
+                  > Time</Text>
                   </Box>
                   </Button>
                   </Box>
                 
                   <Box>
-                  <Button w="100%" bg='#f6f7f8'>
+                  <Button w="100%" bg='#f6f7f8' onClick={()=>navigate('/dashboard/task')}>
                     <Box flex='1' display={'flex'} gap='10px'  >
                     <BiNotepad size="1.5rem"/>
-                    <Link 
+                    <Text 
                     fontWeight={'550'} 
-                    to={'/dashboard/task'}
-                    > Task</Link>
+                 
+                    > Task</Text>
                     </Box>
                   </Button>
                   </Box>

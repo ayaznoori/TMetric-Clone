@@ -1,5 +1,5 @@
 import {  Box, Button, Checkbox, Divider, Fade, Flex, Input, Text, useDisclosure } from '@chakra-ui/react';
-import React, { useState } from 'react'
+import React, { useState,useEffect} from 'react'
 import {AiOutlineRight,AiOutlineLeft} from "react-icons/ai"
 import {TiMediaRecord} from "react-icons/ti"
 import {FaPlay} from "react-icons/fa"
@@ -16,6 +16,7 @@ const Time = () => {
     const[play, setPlay]=useState(false)
     const[uptime, setUptime]=useState(0)
     let [value, onChange] = useState("8:00");
+    let [value1, onChange1] = useState("8:00");
     let [clock2 ,setClock2]=useState()
 
     // console.log(clock2)
@@ -42,7 +43,17 @@ const Time = () => {
       setUptime(uptime+1)
       onClose();
     }
-  
+    const [shour,setshour]=useState([])
+    const [ehour,setehour]=useState([])
+    
+    useEffect(()=>{
+      setshour(value.trim().split(":").map(Number));
+    },[value])
+    useEffect(()=>{
+      setehour(value1.trim().split(":").map(Number));
+    },[value1])
+      
+     
   return (
 <Box  w="80%" p="0.5rem">
 
@@ -136,11 +147,14 @@ const Time = () => {
                 <TimePicker onChange={onChange} value={value}/>
             </Box>
             <Box>
-                <Clock setClock2={setClock2}/>
+            <Text textAlign={"left"}>End Time</Text>
+            <TimePicker onChange={onChange1} value={value1}/>
+                {/* <Clock setClock2={setClock2}/> */}
             </Box>
+        
             <Box  w="12%">
                 <Text textAlign={"left"}>Duration</Text>
-                <Text border="1px solid" borderRadius={"3px"}>1 h : 00m</Text>
+                <Text border="1px solid" borderRadius={"3px"}>{ehour[0]-shour[0]}h : {ehour[1]-shour[1]}m</Text>
             </Box>
           </Flex>
 
