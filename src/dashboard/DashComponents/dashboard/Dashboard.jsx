@@ -61,13 +61,12 @@ const Dashboard = () => {
 
                   <Box>
 
-                  <Button w="100%" bg='#f6f7f8'>
+                  <Button w="100%" bg='#f6f7f8' onClick={()=>navigate('/dashboard/team')}>
                     <Box flex='1' display={'flex'} gap='10px' >
                     <AiOutlineTeam size="1.5rem"/>
-                    <Link 
+                    <Text
                     fontWeight={'550'}
-                    to={'/dashboard/team'}
-                    > Team</Link>
+                    > Team</Text>
                     </Box>
                   </Button>
 

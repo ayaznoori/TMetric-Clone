@@ -4,33 +4,31 @@ import { Input, InputGroup, InputLeftAddon, Select,Box } from "@chakra-ui/react"
 import { AiOutlineSearch } from "react-icons/ai";
 import { HiUserCircle } from "react-icons/hi";
 import { SearchIcon } from "@chakra-ui/icons";
-
+import db from "../../../db";
 const Team = () => {
   const [data, setData] = useState([]);
   const [searchVal, setSearchVal] = useState("");
   const handleChange = (value) => {
     if (value == "all") {
-      console.log(value);
-      fetch("http://localhost:8080/teamMembers")
-        .then((res) => res.json())
-        .then((data) => setData(data));
+    setData(db().teamMembers);
     } else {
-      console.log(value);
-      fetch(`http://localhost:8080/teamMembers?teamId=${value}`)
-        .then((res) => res.json())
-        .then((data) => setData(data));
+ 
+   setData([db().teamMembers[3],db().teamMembers[4],db().teamMembers[5]]);
     }
   };
   const handleInputChange = (value) => {
-    console.log(value);
-    fetch(`http://localhost:8080/teamMembers?text=${value}`)
-      .then((res) => res.json())
-      .then((user) => console.log("user", user));
-  };
+    setData(db().teamMembers);
+   if(value!==""){
+    let temp=data.filter((e)=>{
+      let str=e.user;
+       if(str.includes(value)){
+       return e}});
+     setData(temp);
+   }
+   
+}
   useEffect(() => {
-    fetch("http://localhost:8080/teamMembers")
-      .then((res) => res.json())
-      .then((users) => setData(users));
+    setData(db().teamMembers);
   }, []);
   return (
     <Box w="80%" p="0.5rem">
