@@ -1,5 +1,6 @@
 import React, { useState} from 'react'
 import style from '../Signup/Signup.module.css'
+import { useNavigate } from 'react-router-dom'
 import {
   FormControl,
   FormLabel,
@@ -9,9 +10,11 @@ import {
   Text,
   Button
 } from '@chakra-ui/react'
+import Login from '../Login/Login';
 const axios = require('axios');
 
 const Signup = () => {
+  let navigate = useNavigate()
 
   const [user, setUser] = useState({
     name: '',
@@ -33,7 +36,8 @@ const Signup = () => {
     if(name && email && password) {
       axios.post('http://localhost:9002/signup', user)
       .then(res => console.log(res))
-      alert('signup suceessful')
+      alert('signup suceessful');
+      navigate('/login')
     }
     else {
       alert('error')
