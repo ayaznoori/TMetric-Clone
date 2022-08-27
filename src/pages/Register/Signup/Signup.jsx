@@ -9,6 +9,7 @@ import {
   Text,
   Button
 } from '@chakra-ui/react'
+const axios = require('axios');
 
 const Signup = () => {
 
@@ -25,6 +26,18 @@ const Signup = () => {
       ...user,
       [name]: value
      })
+  }
+
+  const register = () => {
+    const { name, email, password } = user
+    if(name && email && password) {
+      axios.post('http://localhost:9002/signup', user)
+      .then(res => console.log(res))
+      alert('signup suceessful')
+    }
+    else {
+      alert('error')
+    }
   }
 
   return (
@@ -75,7 +88,16 @@ const Signup = () => {
                 onChange={handleChange}
                 />
 
-              <Button padding={3} borderRadius={3} width='100%' size='xs' color='white' marginBottom={4} backgroundColor='rgb(48,112,240)'>Sign up</Button>
+              <Button 
+                padding={3} 
+                borderRadius={3} 
+                width='100%' 
+                size='xs' 
+                color='white' 
+                marginBottom={4} 
+                backgroundColor='rgb(48,112,240)'
+                onClick={register}
+                >Sign up</Button>
             </div>
 
             <div className={style.lineText}><p>or</p></div>
@@ -84,7 +106,7 @@ const Signup = () => {
             <Button padding={3} variant='outline' borderRadius={3} width='100%' size='xs' color='gray' marginBottom={4} colorScheme='gray'> <span><img width={15} src="https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png" alt="apple" /></span> <a href="https://www.apple.com/">Log in the Apple</a></Button>
             <hr />
             <div className={style.bottomSlide}>
-              <Text color='black'>Already have an account?</Text><a href="">Log In</a>
+              <Text color='black'>Already have an account?</Text><a href="/login">Log In</a>
             </div>
           </div>
         </div>
