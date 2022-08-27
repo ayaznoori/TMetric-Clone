@@ -16,7 +16,7 @@ import { TiTick } from "react-icons/ti";
 import { ImCross } from "react-icons/im";
 import React, { useEffect, useState } from "react";
 import styles from "./pricing.module.css";
-
+import db from "../../db"
 const PricingComponent = () => {
   const [value, setValue] = React.useState(1);
   const [data, setData] = useState([]);
@@ -56,9 +56,8 @@ const PricingComponent = () => {
     "Team Dashboard",
   ];
   useEffect(() => {
-    fetch("http://localhost:8080/pricing")
-      .then((res) => res.json())
-      .then((data) => setData(data));
+     setData(db().pricing)
+     console.log(db())
   }, []);
   return (
     <div>
