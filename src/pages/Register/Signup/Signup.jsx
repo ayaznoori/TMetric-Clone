@@ -36,7 +36,7 @@ const Signup = () => {
     if(name && email && password) {
       axios.post('http://localhost:9002/signup', user)
       .then(res => console.log(res))
-      alert('signup suceessful');
+      alert('signup successful');
       navigate('/login')
     }
     else {

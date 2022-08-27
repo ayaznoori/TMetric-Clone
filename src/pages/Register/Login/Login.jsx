@@ -32,7 +32,12 @@ const Login = () => {
 
   const login = () => {
     axios.post('http://localhost:9002/login', user)
-    .then((res) => {alert(res.data.message); navigate('/dashboard/time')})
+    .then((res) => { if(res.data.message == "Login Successfull") {
+      alert(res.data.message);
+      navigate('/dashboard/time');
+      localStorage.setItem("user",JSON.stringify({...res.data.user}));
+    } else {alert(res.data.message)}}
+    )
      
   }
 
