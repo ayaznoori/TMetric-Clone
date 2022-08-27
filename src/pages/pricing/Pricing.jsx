@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import PricingComponent from "../../components/pricing/PricingComponent";
 
 const Pricing = () => {
   return (
-    <div>Pricing</div>
-  )
-}
+    <div>
+      <PricingComponent />
+    </div>
+  );
+};
 
-export default Pricing
+export default Pricing;

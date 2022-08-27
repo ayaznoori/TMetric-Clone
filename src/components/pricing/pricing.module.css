@@ -1,0 +1,123 @@
+.header_pricing_container{
+    width: 100%;
+    height: 400px;
+    background-color: #e8edff;
+    border: 1px solid #e8edff;
+}
+.pricing_text_div{
+    font-size: 60px;
+    font-weight: 800;
+    margin: auto;
+    text-align: center;
+    margin-top: 9%;
+    margin-bottom:1%;
+    padding-bottom: 10px;
+}
+.pricing_sub_text_div{
+    font-size:18px;
+    margin: auto;
+    text-align: center;
+    font-weight: 600;
+}
+.billing_buttons_container{
+    width: 90%;
+    margin: auto;
+    border: 1px solid #e4e8ed;
+    border-radius: 10px;
+    height: 80px;
+    margin-top: 30px;
+    display: flex;
+justify-content: space-evenly;
+}
+.billing_switch_container{
+    display:flex;
+    border-right:1px solid #e4e8ed;
+    padding-top: 20px;
+    padding-left: 30px;
+    width: 23%;
+    font-size:18px;
+    font-weight:600;
+    gap: 10px;
+}
+.billing_team_members_container{
+    display: flex;
+    width: 65%;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 20px;
+    padding-top: 20px;
+}
+.price_card_container{
+    width:90%;
+    height:auto;
+    margin:auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+.price_card_business{
+    width:30%;
+    border:1px solid #e7eaee;
+    border-radius: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+}
+.set_categories_heading{
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.set_categories_price{
+    width:80%;
+    height:70px;
+    color: #4c5157;
+    text-align: center;
+    margin: auto;
+    background-color: #f6f7f8;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 500;
+    align-items: center;
+    align-content: center;
+
+}
+.business_card_benefit{
+    display: flex;
+    font-size: 17px ;
+    font-weight: 500;
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    padding-top: 10px;
+    border-bottom: 1px solid #ebedf0;
+}
+.price_card_professional{
+    width:30%;
+    border:1px solid #e7eaee;
+    border-radius: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.professional_card_benefit{
+    display: flex;
+    font-size: 17px ;
+    font-weight: 500;
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    padding-top: 10px;
+    border-bottom: 1px solid #ebedf0;
+}
+.price_card_free{
+    width:30%;
+    border:1px solid #e7eaee;
+    border-radius: 7px;
+    padding-left: 15px;
+    padding-right: 15px
+}

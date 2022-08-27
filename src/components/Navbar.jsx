@@ -1,7 +1,6 @@
 import {
-    Box,
-    Flex,
     Text,
+    Flex,
     IconButton,
     Button,
     Stack,
@@ -12,22 +11,26 @@ import {
     PopoverTrigger,
     PopoverContent,
     useColorModeValue,
- 
+    VStack,
+    HStack,
     useDisclosure,
     Img
   } from '@chakra-ui/react';
   import {
+  
     HamburgerIcon,
     CloseIcon,
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
+import Droplist from './droplist';
+import Droplist1 from './droplist1';
   
   export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
-      <Box position={'fixed'} width='100%' zIndex='9999'>
+      <Text position={'fixed'} width='100%' zIndex='9999'>
         <Flex
           bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
@@ -97,7 +100,7 @@ import {
         <Collapse in={isOpen} animateOpacity>
           <MobileNav />
         </Collapse>
-      </Box>
+      </Text>
     );
   }
   
@@ -108,13 +111,12 @@ import {
   
     return (
       <Stack direction={'row'} spacing={4}>
-        {NAV_ITEMS.map((navItem) => (
-          <Box key={navItem.label}>
+ 
+          <Text  >
             <Popover trigger={'hover'} placement={'bottom-start'}>
               <PopoverTrigger>
                 <Link
                   p={2}
-                  href={navItem.href ?? '#'}
                   fontSize={'sm'}
                   fontWeight={500}
                   color={linkColor}
@@ -122,28 +124,51 @@ import {
                     textDecoration: 'none',
                     color: linkHoverColor,
                   }}>
-                  {navItem.label}
+                    Why TMetric <ChevronDownIcon/> 
                 </Link>
               </PopoverTrigger>
-  
-              {navItem.children && (
                 <PopoverContent
                   border={0}
-                  boxShadow={'xl'}
+                  width="100%"
+                  padding='50px'
+                  TextShadow={'xl'}
                   bg={popoverContentBgColor}
                   p={4}
                   rounded={'xl'}
-                  minW={'sm'}>
-                  <Stack>
-                    {navItem.children.map((child) => (
-                      <DesktopSubNav key={child.label} {...child} />
-                    ))}
-                  </Stack>
+                  >
+                    <Droplist/>
                 </PopoverContent>
-              )}
             </Popover>
-          </Box>
-        ))}
+          </Text>
+          <Text  >
+            <Popover trigger={'hover'} placement={'bottom-start'}>
+              <PopoverTrigger>
+                <Link
+                  p={2}
+                  fontSize={'sm'}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: linkHoverColor,
+                  }}>
+                     Apps & Integrations <ChevronDownIcon/>
+                </Link>
+              </PopoverTrigger>
+                <PopoverContent
+                  border={0}
+                  width="100%"
+                  padding='50px'
+                  TextShadow={'xl'}
+                  bg={popoverContentBgColor}
+                  p={4}
+                  rounded={'xl'}
+                  >
+                    <Droplist1/>
+                </PopoverContent>
+            </Popover>
+          </Text>
+ 
       </Stack>
     );
   };
@@ -158,7 +183,7 @@ import {
         rounded={'md'}
         _hover={{ bg: useColorModeValue('white', 'gray.900') }}>
         <Stack direction={'row'} align={'center'}>
-          <Box>
+          <Text>
             <Text
               transition={'all .3s ease'}
               _groupHover={{ color: 'rgb(48,112,240)' }}
@@ -166,7 +191,7 @@ import {
               {label}
             </Text>
             <Text fontSize={'md'}>{subLabel}</Text>
-          </Box>
+          </Text>
           <Flex
             transition={'all .3s ease'}
             transform={'translateX(-10px)'}
@@ -249,16 +274,16 @@ import {
   
   const NAV_ITEMS = [
     {
-      label: 'Why TMetric',
+      label: 'Why TMetric ',
       children: [
         {
-          label: 'Explore Design Work',
-          subLabel: 'Trending Design to inspire you',
+          label: 'Time Tracking',
+          subLabel: 'Capture and control every task you work on',
           href: '#',
         },
         {
-          label: 'New & Noteworthy',
-          subLabel: 'Up-and-coming Designers',
+          label: 'Team Mangement',
+          subLabel: 'Monitor productivity and activity level of your team',
           href: '#',
         },
       ],
