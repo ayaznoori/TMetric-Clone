@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 import {BsStopwatch} from "react-icons/bs"
 import {BiNotepad} from "react-icons/bi"
 import {AiOutlineTeam} from "react-icons/ai"
+import {useNavigate} from "react-router-dom"
 import {
   Accordion,
   AccordionItem,
@@ -22,9 +23,16 @@ import {
   Button,
   Text
 } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom';
+let usersname= JSON.parse(localStorage.getItem("user")) || {name:"shashank"}
+
 const Dashboard = () => {
- const navigate=useNavigate();
+  const navigate=useNavigate();
+  let handlelogout = ()=>{
+    console.log("logout")
+    localStorage.removeItem("user");
+    navigate("/")
+  }
+ 
   return (
       <div border="1px solid" className='main'>
         <Stack  bgColor={"light grey "}>
@@ -153,7 +161,7 @@ const Dashboard = () => {
             <Stack mt='200px' >
             <Menu  mt='200px'>
               <MenuButton as={Button}>
-                Shashank kumar
+                {usersname.name}
               </MenuButton>
               <MenuList placement='right-top'  left='130%'>
                 <MenuItem minH="48px">
@@ -161,9 +169,9 @@ const Dashboard = () => {
                   <span>My Profile</span>
                 </MenuItem>
                 <MenuDivider />
-                <MenuItem minH="40px">
+                <MenuItem minH="40px" onClick={()=>handlelogout()} >
               
-                  <span>Logout</span>
+                  <span  >Logout</span>
                 </MenuItem>
               </MenuList>
             </Menu>

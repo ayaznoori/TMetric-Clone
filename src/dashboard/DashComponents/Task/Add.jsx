@@ -3,8 +3,11 @@ import React, { useState } from 'react'
 import {FaPlay} from "react-icons/fa"
 import {CgProfile} from "react-icons/cg"
 import {IoIosCheckmarkCircleOutline} from "react-icons/io"
+import {GiPauseButton} from "react-icons/gi"
 
-const Add = ({handlechange}) => {
+
+const Add = ({handlechange }) => {
+ 
   
   return (
     <div>

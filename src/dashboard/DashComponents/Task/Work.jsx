@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react'
 import {Image,Button,Stack,HStack,Input, Box, Divider} from "@chakra-ui/react"
 import {ImPlay2} from "react-icons/im"
-const Work = ({wrk,handletoggle}) => {
+import {GiPauseButton} from "react-icons/gi"
+import {MdOutlinePauseCircle} from "react-icons/md"
+
+let namewa = JSON.parse(localStorage.getItem("user")) || {name:"shashank"}
+const Work = ({wrk,handletoggle,handlered}) => {
   // console.log(wrk.target,"checktarget");
   
-
+  
 
  console.log(wrk,"work")
   return (
     <Box  p="0.7rem" lineHeight={"40px"}>
          <HStack display={'flex'} justifyContent='space-between' >
                 <HStack  >
-                  <ImPlay2 size="30px"/>
+                  {wrk.goingon==false ?<ImPlay2 size="30px" onClick={()=>handlered(wrk.id)} />:<MdOutlinePauseCircle size='30px' color='red' onClick={()=>handlered(wrk.id)} />}
                   <Button  colorScheme={wrk.iscompleted===true ? "green":null} color={wrk.iscompleted===true ? "white":null}   onClick={()=>{handletoggle(wrk.id)}} >{wrk.iscompleted==true ? "completed":<h3><i class="fa-solid fa-check"></i> &nbsp; Mark as completed</h3>}</Button>
                 </HStack>
                 <HStack gap='5px' m='2px' >
@@ -30,7 +34,7 @@ const Work = ({wrk,handletoggle}) => {
               </HStack>
               <HStack gap='25px' >
                 <p>Assignee</p>
-                <h4>Shashank Kumar</h4>
+                <h4>{namewa.name}</h4>
               </HStack>
               <HStack>
                 <h4>Due Date</h4>
