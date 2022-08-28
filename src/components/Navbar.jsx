@@ -123,7 +123,7 @@ import Droplist1 from './droplist1';
                   color={linkColor}
                   _hover={{
                     textDecoration: 'none',
-                    color: linkHoverColor,
+                    color: "blue",
                   }}>
                     Why TMetric <ChevronDownIcon/> 
                 </Link>
@@ -151,7 +151,7 @@ import Droplist1 from './droplist1';
                   color={linkColor}
                   _hover={{
                     textDecoration: 'none',
-                    color: linkHoverColor,
+                    color: "blue",
                   }}>
                      Apps & Integrations <ChevronDownIcon/>
                 </Link>
@@ -173,7 +173,31 @@ import Droplist1 from './droplist1';
           <Link fontSize={'sm'}
                   fontWeight={500}
                   color={linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: "blue",
+                  }}
                   onClick={()=>navigate('/Pricing')}>Pricing</Link>
+          </Text>
+          <Text>
+          <Link fontSize={'sm'}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: "blue",
+                  }}
+                  onClick={()=>navigate('/')}>Contact</Link>
+          </Text>
+          <Text>
+          <Link fontSize={'sm'}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: "blue",
+                  }}
+                  onClick={()=>navigate('/')}>Blog</Link>
           </Text>
       </Stack>
     );
