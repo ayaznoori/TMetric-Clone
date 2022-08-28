@@ -1,19 +1,8 @@
-import React,{useEffect,useRef, useState} from 'react'
+import React,{useEffect,useState} from 'react'
 import { Button, Stack ,HStack, Box, Text} from '@chakra-ui/react'
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,Tabs, TabList, TabPanels, Tab, TabPanel,Input,Image
- 
-} from '@chakra-ui/react';
+import {Input,Image} from '@chakra-ui/react';
 import {v4} from "uuid";
-
-import {ChevronDownIcon,SearchIcon,Icon} from "@chakra-ui/icons"
+ 
 import Menu_component from './Menu_component';
 import Add from './Add';
 import Work from "./Work"

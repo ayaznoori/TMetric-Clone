@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./team.module.css";
 import { Input, InputGroup, InputLeftAddon, Select,Box } from "@chakra-ui/react";
-import { AiOutlineSearch } from "react-icons/ai";
 import { HiUserCircle } from "react-icons/hi";
 import { SearchIcon } from "@chakra-ui/icons";
 import db from "../../../db";
 const Team = () => {
   const [data, setData] = useState([]);
-  const [searchVal, setSearchVal] = useState("");
   const handleChange = (value) => {
     if (value == "all") {
     setData(db().teamMembers);
