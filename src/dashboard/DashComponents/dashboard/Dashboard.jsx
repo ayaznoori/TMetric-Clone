@@ -22,12 +22,13 @@ import {
   Button,
   Text
 } from '@chakra-ui/react'
-let usersname= JSON.parse(localStorage.getItem("user")) || {name:"shashank"}
+
 
 const Dashboard = () => {
+  let usersname= JSON.parse(localStorage.getItem("user")) || {name:"user"}
   const navigate=useNavigate();
   let handlelogout = ()=>{
-    console.log("logout")
+ 
     localStorage.removeItem("user");
     navigate("/")
   }

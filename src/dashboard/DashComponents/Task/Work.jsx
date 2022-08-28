@@ -4,13 +4,12 @@ import {ImPlay2} from "react-icons/im"
 import {GiPauseButton} from "react-icons/gi"
 import {MdOutlinePauseCircle} from "react-icons/md"
 
-let namewa = JSON.parse(localStorage.getItem("user")) || {name:"shashank"}
+
 const Work = ({wrk,handletoggle,handlered}) => {
+  let namewa = JSON.parse(localStorage.getItem("user")) || {name:"user"}
   // console.log(wrk.target,"checktarget");
   
   
-
- console.log(wrk,"work")
   return (
     <Box  p="0.7rem" lineHeight={"40px"}>
          <HStack display={'flex'} justifyContent='space-between' >

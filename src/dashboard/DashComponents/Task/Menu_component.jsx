@@ -15,7 +15,7 @@ import db from "../../../db"
 const Menu_component = (props) => {
   let data = db();
   let [d,setD] = useState([...data.teams])
-  console.log(d);
+ 
   
 
 
