@@ -16,7 +16,7 @@ const Time = () => {
     const[uptime, setUptime]=useState(0)
     let [value, onChange] = useState("8:00");
     let [value1, onChange1] = useState("8:00");
-    let [clock2 ,setClock2]=useState()
+ 
 
     // console.log(clock2)
     // console.log(value)
@@ -25,7 +25,7 @@ const Time = () => {
       description:"",
       project:"",
       start:value,
-      end:clock2,
+      end:value1,
     })
     // console.log(form)
     const handleChange=(e)=>{

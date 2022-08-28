@@ -1,6 +1,5 @@
 import React from 'react'
 import  "./dashboard.css";
-import {Link} from "react-router-dom"
 import {BsStopwatch} from "react-icons/bs"
 import {BiNotepad} from "react-icons/bi"
 import {AiOutlineTeam} from "react-icons/ai"

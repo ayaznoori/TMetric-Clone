@@ -11,8 +11,6 @@ import {
     PopoverTrigger,
     PopoverContent,
     useColorModeValue,
-    VStack,
-    HStack,
     useDisclosure,
     Img
   } from '@chakra-ui/react';
@@ -107,7 +105,6 @@ import Droplist1 from './droplist1';
   
   const DesktopNav = () => {
     const linkColor = useColorModeValue('gray.600', 'gray.200');
-    const linkHoverColor = useColorModeValue('gray.800', 'white');
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
     const navigate=useNavigate();
     return (

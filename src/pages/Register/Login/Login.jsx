@@ -1,19 +1,16 @@
 import React, { useState } from 'react'
 import style from '../Login/Login.module.css'
 import  { useNavigate }  from 'react-router-dom'
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
+import { 
+  FormLabel, 
   Input,
   Text,
-  Button
+  Button,
+  Link
 } from '@chakra-ui/react'
 const axios = require('axios');
 
 const Login = () => {
-  let [l , setL] = useState(false)
   let navigate = useNavigate()
 
   const [user, setUser] = useState({
@@ -32,7 +29,7 @@ const Login = () => {
 
   const login = () => {
     axios.post('http://localhost:9002/login', user)
-    .then((res) => { if(res.data.message == "Login Successfull") {
+    .then((res) => { if(res.data.message === "Login Successfull") {
       alert(res.data.message);
       navigate('/dashboard/time');
       localStorage.setItem("user",JSON.stringify({...res.data.user}));
@@ -103,7 +100,7 @@ const Login = () => {
           </div>
       </div>
       <div className={style.privacy}>
-            <a href="">Privacy Policy</a>
+            <Link href="#">Privacy Policy</Link>
           </div>
     </div>
   )

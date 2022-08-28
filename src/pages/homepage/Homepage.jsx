@@ -4,7 +4,6 @@ import { Text,InputGroup,InputLeftElement,Input,Button, Flex, Img, Box, VStack }
 import { EmailIcon } from '@chakra-ui/icons';
 import { Showhide } from './Showhide';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../../components/Footer';
 const Homepage = () => {
     const [img,setimg]=useState('https://tmetric.com/media/e5enfaae/img-advantages.png');
     const navigate=useNavigate();
@@ -32,7 +31,7 @@ const Homepage = () => {
 
             <div className={style.topright}>
               <img src="https://tmetric.com/media/w53hmkzd/img-video-cover.png" alt="fulllogo" width="80%" />
-              <a target='_blank' href="https://www.youtube.com/embed/d2LwNiALPIM?autoplay=1&amp;controls=1&amp;list=PL74QEPdFcvLY9y7ZGsu9IE2kMwGJmAT3f&amp;listType=playlist" class="btn-play" data-toggle="modal" data-target="#youTubeVideoModal" data-video-url="https://www.youtube.com/embed/d2LwNiALPIM?autoplay=1&amp;controls=1&amp;list=PL74QEPdFcvLY9y7ZGsu9IE2kMwGJmAT3f&amp;listType=playlist"><Img className={style.playbutton} src='https://cdn-icons-png.flaticon.com/512/17/17550.png' width='100px'/></a>
+              <a target='_blank' rel="noreferrer" href="https://www.youtube.com/embed/d2LwNiALPIM?autoplay=1&amp;controls=1&amp;list=PL74QEPdFcvLY9y7ZGsu9IE2kMwGJmAT3f&amp;listType=playlist" class="btn-play" data-toggle="modal" data-target="#youTubeVideoModal" data-video-url="https://www.youtube.com/embed/d2LwNiALPIM?autoplay=1&amp;controls=1&amp;list=PL74QEPdFcvLY9y7ZGsu9IE2kMwGJmAT3f&amp;listType=playlist"><Img className={style.playbutton} src='https://cdn-icons-png.flaticon.com/512/17/17550.png' width='100px'/></a>
             </div>
         </div> 
         <div className={style.companyflex} >

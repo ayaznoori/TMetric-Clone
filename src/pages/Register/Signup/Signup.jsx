@@ -2,15 +2,11 @@ import React, { useState} from 'react'
 import style from '../Signup/Signup.module.css'
 import { useNavigate } from 'react-router-dom'
 import {
-  FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   Text,
   Button
 } from '@chakra-ui/react'
-import Login from '../Login/Login';
 const axios = require('axios');
 
 const Signup = () => {
