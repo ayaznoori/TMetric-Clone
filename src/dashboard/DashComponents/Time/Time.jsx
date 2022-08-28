@@ -10,12 +10,15 @@ import Menus from './Menus';
 import ActiveProject from './ActiveProject';
 
 
+
 const Time = () => {
     const { isOpen, onOpen, onClose} = useDisclosure()
     const[play, setPlay]=useState(false)
-    const[uptime, setUptime]=useState(0)
+    const[uptime, setUptime]=useState([0,0])
     let [value, onChange] = useState("8:00");
-    let [value1, onChange1] = useState("8:00");
+    let [value1, onChange1] = useState("9:00");
+    const [shour,setshour]=useState([])
+    const [ehour,setehour]=useState([])
  
 
     // console.log(clock2)
@@ -24,8 +27,8 @@ const Time = () => {
     const [form,setForm]=useState({
       description:"",
       project:"",
-      start:value,
-      end:value1,
+      start:shour,
+      end:ehour,
     })
     // console.log(form)
     const handleChange=(e)=>{
@@ -39,17 +42,21 @@ const Time = () => {
     const Addproject=(e)=>{
       e.preventDefault()
       setData([...data,form])
-      setUptime(uptime+1)
+      let h=ehour[0]-shour[0];
+      let m=ehour[1]-shour[1];
+      let temp=[...uptime];
+      setUptime([temp[0]+h,temp[1]+m])
       onClose();
     }
-    const [shour,setshour]=useState([])
-    const [ehour,setehour]=useState([])
+    
     
     useEffect(()=>{
       setshour(value.trim().split(":").map(Number));
+      setForm({...form,start:shour.join(":")})
     },[value])
     useEffect(()=>{
       setehour(value1.trim().split(":").map(Number));
+      setForm({...form,end:ehour.join(":")})
     },[value1])
       
      
@@ -94,7 +101,7 @@ const Time = () => {
 <Box >
     <Text textAlign={"left"}>Total</Text>
     <Flex mt="-2" justifyContent={"space-between"}>
-        <Text fontSize={"3xl"} fontWeight="medium">{uptime?`${uptime}h:0mint`:"0 mint"}</Text>
+        <Text fontSize={"3xl"} fontWeight="medium">{Math.abs(uptime[0])+"h"+":"+Math.abs(uptime[1])+"m" }</Text>
         <Text>...</Text>
     </Flex>
 </Box>

@@ -34,26 +34,25 @@ const Task = () => {
     
    }
    setUsers([...users,b])
-   console.log(users);
-   console.log(b.name);
+   
   //  let a=<Work wrk={hd(wrk)} /> 
    setWork([...work,wrk])
    let s= ref
    if(ref!=null) setRef(s+1)
    else setRef(0);
-   console.log(ref);
+    
    
     
   }
   
   
   let handleclick1=(a)=>{
-    console.log(a)
+ 
     setRef(a)
    
   }
   let handlered=(a)=>{
-   console.log("its red");
+   
     let userwa = users.map((l,i)=>{
       if(a==l.id){
         l.goingon=!l.goingon
@@ -70,7 +69,7 @@ const Task = () => {
   }
 
   let handlechange= (e)=>{
-    console.log(e.target);
+   
     let {name,value} = e.target;
     setWrk({...wrk,[name]:value});
     setS(true);
@@ -97,7 +96,7 @@ const Task = () => {
       return l
     })
     setUsers(userwa);
-    console.log(users[ref]);
+     
   }
   
   useEffect(()=>{

@@ -20,7 +20,7 @@ const PricingComponent = () => {
   const [value, setValue] = React.useState(1);
   const [data, setData] = useState([]);
   const [isMonthly, setIsMonthly] = useState(true);
-  console.log(value);
+ 
   const handleChange = (value) => setValue(value);
   const handleSwitchChange = () => {
     if(isMonthly == true){
@@ -30,7 +30,7 @@ const PricingComponent = () => {
       setIsMonthly(true)
     }
   };
-  console.log(isMonthly)
+   
   const benefits = [
     "Time Tracking",
     "Unlimited projects and clients",
@@ -56,7 +56,7 @@ const PricingComponent = () => {
   ];
   useEffect(() => {
      setData(db().pricing)
-     console.log(db())
+ 
   }, []);
   return (
     <div>
