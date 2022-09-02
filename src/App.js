@@ -13,9 +13,19 @@ import Dashboard from "./dashboard/DashComponents/dashboard/Dashboard";
 import Time from "./dashboard/DashComponents/Time/Time";
 import Task from "./dashboard/DashComponents/Task/Task";
 import Team from "./dashboard/DashComponents/Team/Team";
-
+import { useEffect } from "react";
+import { gapi } from "gapi-script";
 
 function App() {
+  useEffect(()=>{
+    gapi.load("client:auth2", () => {
+      gapi.client.init({
+        clientId:
+          "487806808115-u4tnqobdjitv6csr2pom5tdrj5fb8383.apps.googleusercontent.com",
+        plugin_name: "chat",
+      });
+    });
+  },[])
   return (
     <div className="App">     
           <Routes>

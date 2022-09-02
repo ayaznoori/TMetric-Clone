@@ -22,13 +22,13 @@ import {
   Button,
   Text
 } from '@chakra-ui/react'
-
+import { GoogleLogout } from 'react-google-login';
 
 const Dashboard = () => {
   let usersname= JSON.parse(localStorage.getItem("user")) || {name:"user"}
   const navigate=useNavigate();
   let handlelogout = ()=>{
- 
+    
     localStorage.removeItem("user");
     navigate("/")
   }
@@ -169,9 +169,14 @@ const Dashboard = () => {
                   <span>My Profile</span>
                 </MenuItem>
                 <MenuDivider />
-                <MenuItem minH="40px" onClick={()=>handlelogout()} >
+                <MenuItem minH="40px" >
               
-                  <span  >Logout</span>
+                <GoogleLogout
+                    clientId='487806808115-u4tnqobdjitv6csr2pom5tdrj5fb8383.apps.googleusercontent.com'
+                    buttonText="Sign Out"
+                    onLogoutSuccess={handlelogout}
+                >
+                </GoogleLogout>
                 </MenuItem>
               </MenuList>
             </Menu>
