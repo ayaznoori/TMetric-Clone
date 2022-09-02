@@ -1,0 +1,33 @@
+.container{
+    width: 100%;
+    margin: auto;
+}
+.topsection{
+    width: 100%;
+    background-color: rgb(255,240,184);
+ 
+    padding: 40px;
+    display: flex;
+}
+.topleft{
+    width: 50%;
+ 
+}
+.topright{
+    width: 50%;
+}
+.playbutton{
+ 
+    transform: translateX(200px)translatey(-200px);
+ 
+}
+.companyflex>ul{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    list-style: none;
+    align-items: center;
+}
+.companyflex>ul>li:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,16 @@
+.sidebar{
+    width: 20%;
+    flex-shrink: 0;
+    background-color: rgb(165, 165, 165);
+    height: 100%;
+    overflow: auto;
+    color: white;
+}
+
+.container{
+    width: 80%;
+}
+
+
+  
+ 
