@@ -1,0 +1,87 @@
+.team_container_main{
+    /* height: 650px; */
+    /* margin-left:10px; */
+    /*padding-left: 5px;
+    padding-right: 5px; */
+}
+.team_all_dropdown_containter{
+    margin-top: 15px;
+}
+.team_members_detail_container{
+    margin-top: 10px;
+    border: 1px solid #d0d6db;
+    border-radius: 4px;
+}
+.team_members_search_div{
+    padding: 18px;
+    padding-left: 18px;
+    border-bottom: 1px solid #d0d6db;
+}
+.team_members_search_box{
+    border: 1px solid #d0d6db;
+    border-radius: 5px;
+    width: 20%;
+    height: 33px;
+    padding-left: 10px;
+}
+.team_members_content_headings{
+    color:#777e85;
+    font-size: 11px;
+    font-weight: 400;
+
+}
+td,th{
+    padding: 15px;
+}
+.team_members_content_table{
+    width: 100%;
+    text-align: left;
+    
+}
+.team_members_table_header{
+    margin-left: 15px;
+    border-bottom: 1px solid #d0d6db;
+}
+.team_members_table_body{
+    display: table-row-group;
+    vertical-align: middle;   
+    font-size: 11px;
+    color: #34393d;
+    /* border-bottom: 1px solid #d0d6db ; */
+    
+}
+.team_members_table_row{
+    border-bottom: 1px solid #d0d6db;
+    margin-left: 40px;
+    padding-top:5%;
+    text-align:center;
+}
+.setUserRow{
+    width: 20%;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 13px;
+    color: #34393d;
+    font-weight: 500;
+}
+.setUserStatus{
+    text-align: left;
+}
+.setUserStartTime{
+    text-align: left;
+    
+}
+.setIdle{
+    text-align: center;
+    border-radius: 40px;
+    background-color: #ebedf0;
+    font-size: 12px;
+    color: #4c515c;
+}
+.setWorking{
+    text-align: center;
+    border-radius: 40px;
+    background-color: #e3f8e6;
+    font-size: 12px;
+    color: #208762;
+}
