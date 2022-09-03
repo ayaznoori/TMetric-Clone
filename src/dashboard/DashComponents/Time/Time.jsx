@@ -36,9 +36,14 @@ const Time = () => {
     const DeleteProject=(id)=>{
       let newData=data.filter((e)=>e.id!==id)
       setData(newData)
-      console.log(id)
+      rset();
     }
-
+    const rset=()=>{
+      let h=ehour[0]-shour[0];
+      let m=ehour[1]-shour[1];
+      let temp=[...uptime];
+      setUptime([temp[0]-h,temp[1]-m])
+    }
 
     const handleChange=(e)=>{
       const {name,value}=e.target;
@@ -47,17 +52,20 @@ const Time = () => {
         ...form,[name]:value,id:uuidv4(),
       })
     }
-
-    const Addproject=(e)=>{
-      e.preventDefault()
-      setData([...data,form])
+    const set=()=>{
       let h=ehour[0]-shour[0];
       let m=ehour[1]-shour[1];
       let temp=[...uptime];
       setUptime([temp[0]+h,temp[1]+m])
+    }
+
+    const Addproject=(e)=>{
+      e.preventDefault()
+      setData([...data,form])
+      set();
       onClose();
     }
-    
+   
     
     useEffect(()=>{
       setshour(value.trim().split(":").map(Number));
