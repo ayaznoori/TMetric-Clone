@@ -11,8 +11,6 @@ import {
     PopoverTrigger,
     PopoverContent,
     useColorModeValue,
-    VStack,
-    HStack,
     useDisclosure,
     Img
   } from '@chakra-ui/react';
@@ -23,12 +21,13 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
+  import {useNavigate} from 'react-router-dom';
 import Droplist from './droplist';
 import Droplist1 from './droplist1';
   
   export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
-  
+    
     return (
       <Text position={'fixed'} width='100%' zIndex='9999'>
         <Flex
@@ -106,9 +105,8 @@ import Droplist1 from './droplist1';
   
   const DesktopNav = () => {
     const linkColor = useColorModeValue('gray.600', 'gray.200');
-    const linkHoverColor = useColorModeValue('gray.800', 'white');
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
-  
+    const navigate=useNavigate();
     return (
       <Stack direction={'row'} spacing={4}>
  
@@ -122,7 +120,7 @@ import Droplist1 from './droplist1';
                   color={linkColor}
                   _hover={{
                     textDecoration: 'none',
-                    color: linkHoverColor,
+                    color: "blue",
                   }}>
                     Why TMetric <ChevronDownIcon/> 
                 </Link>
@@ -150,7 +148,7 @@ import Droplist1 from './droplist1';
                   color={linkColor}
                   _hover={{
                     textDecoration: 'none',
-                    color: linkHoverColor,
+                    color: "blue",
                   }}>
                      Apps & Integrations <ChevronDownIcon/>
                 </Link>
@@ -168,7 +166,36 @@ import Droplist1 from './droplist1';
                 </PopoverContent>
             </Popover>
           </Text>
- 
+          <Text>
+          <Link fontSize={'sm'}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: "blue",
+                  }}
+                  onClick={()=>navigate('/Pricing')}>Pricing</Link>
+          </Text>
+          <Text>
+          <Link fontSize={'sm'}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: "blue",
+                  }}
+                  onClick={()=>navigate('/')}>Contact</Link>
+          </Text>
+          <Text>
+          <Link fontSize={'sm'}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: "blue",
+                  }}
+                  onClick={()=>navigate('/')}>Blog</Link>
+          </Text>
       </Stack>
     );
   };

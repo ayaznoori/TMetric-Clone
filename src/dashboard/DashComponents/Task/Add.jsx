@@ -1,10 +1,12 @@
-import { HStack,Image,Input } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import { HStack ,Input } from '@chakra-ui/react'
+import React  from 'react'
 import {FaPlay} from "react-icons/fa"
 import {CgProfile} from "react-icons/cg"
 import {IoIosCheckmarkCircleOutline} from "react-icons/io"
 
-const Add = ({handlechange}) => {
+
+const Add = ({handlechange }) => {
+ 
   
   return (
     <div>

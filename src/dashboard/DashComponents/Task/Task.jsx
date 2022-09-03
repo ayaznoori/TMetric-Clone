@@ -1,19 +1,8 @@
-import React,{useEffect,useRef, useState} from 'react'
+import React,{useEffect,useState} from 'react'
 import { Button, Stack ,HStack, Box, Text} from '@chakra-ui/react'
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,Tabs, TabList, TabPanels, Tab, TabPanel,Input,Image
- 
-} from '@chakra-ui/react';
+import {Input,Image} from '@chakra-ui/react';
 import {v4} from "uuid";
-
-import {ChevronDownIcon,SearchIcon,Icon} from "@chakra-ui/icons"
+ 
 import Menu_component from './Menu_component';
 import Add from './Add';
 import Work from "./Work"
@@ -39,39 +28,48 @@ const Task = () => {
    let b={
     id:v4(),
     iscompleted:false,
+    goingon:false,
     name:"",
     user:ss,
     
    }
    setUsers([...users,b])
-   console.log(users);
-   console.log(b.name);
+   
   //  let a=<Work wrk={hd(wrk)} /> 
    setWork([...work,wrk])
    let s= ref
    if(ref!=null) setRef(s+1)
    else setRef(0);
-   console.log(ref);
+    
    
     
   }
   
   
   let handleclick1=(a)=>{
-    console.log(a)
+ 
     setRef(a)
    
   }
-
+  let handlered=(a)=>{
+   
+    let userwa = users.map((l,i)=>{
+      if(a==l.id){
+        l.goingon=!l.goingon
+      }
+      return l
+    })
+    setUsers(userwa);
+  }
   let f = ()=>{
     return (
-      <Add handlechange={handlechange} />
+      <Add handlechange={handlechange} users={users} />
     )
 
   }
 
   let handlechange= (e)=>{
-    console.log(e.target);
+   
     let {name,value} = e.target;
     setWrk({...wrk,[name]:value});
     setS(true);
@@ -98,7 +96,7 @@ const Task = () => {
       return l
     })
     setUsers(userwa);
-    console.log(users[ref]);
+     
   }
   
   useEffect(()=>{
@@ -154,7 +152,7 @@ const Task = () => {
             </Stack>
             <Stack  w='50%' h='100%' >
               {/* {handlefun()} */}
-              {users.length!==0 &&<Work wrk={users[ref]} handletoggle={handletoggle} />}
+              {users.length!==0 &&<Work wrk={users[ref]} handletoggle={handletoggle} handlered={handlered} />}
               {/* {ref.current!=null&& work[ref.current]} */}
             </Stack>
           </HStack>)}

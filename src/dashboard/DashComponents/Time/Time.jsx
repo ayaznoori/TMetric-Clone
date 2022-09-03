@@ -1,56 +1,79 @@
 import {  Box, Button, Checkbox, Divider, Fade, Flex, Input, Text, useDisclosure } from '@chakra-ui/react';
 import React, { useState,useEffect} from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import {AiOutlineRight,AiOutlineLeft} from "react-icons/ai"
 import {TiMediaRecord} from "react-icons/ti"
 import {FaPlay} from "react-icons/fa"
 import {FaStop} from "react-icons/fa"
 
 import TimePicker from 'react-time-picker'
-import Clock from './Clock';
 import Menus from './Menus';
 import ActiveProject from './ActiveProject';
 
 
+
 const Time = () => {
     const { isOpen, onOpen, onClose} = useDisclosure()
-    const[play, setPlay]=useState(false)
-    const[uptime, setUptime]=useState(0)
+    const[play, setPlay]=useState(0)
+    const[uptime, setUptime]=useState([0,0])
     let [value, onChange] = useState("8:00");
-    let [value1, onChange1] = useState("8:00");
-    let [clock2 ,setClock2]=useState()
+    let [value1, onChange1] = useState("9:00");
+    const [shour,setshour]=useState([])
+    const [ehour,setehour]=useState([])
+ 
 
     // console.log(clock2)
     // console.log(value)
     const[data ,setData]=useState([])
     const [form,setForm]=useState({
+      id:"",
       description:"",
       project:"",
-      start:value,
-      end:clock2,
+      start:shour,
+      end:ehour,
     })
     // console.log(form)
+    const DeleteProject=(id)=>{
+      let newData=data.filter((e)=>e.id!==id)
+      setData(newData)
+      rset();
+    }
+    const rset=()=>{
+      let h=ehour[0]-shour[0];
+      let m=ehour[1]-shour[1];
+      let temp=[...uptime];
+      setUptime([temp[0]-h,temp[1]-m])
+    }
+
     const handleChange=(e)=>{
       const {name,value}=e.target;
       // console.log(value)
       setForm({
-        ...form,[name]:value,
+        ...form,[name]:value,id:uuidv4(),
       })
+    }
+    const set=()=>{
+      let h=ehour[0]-shour[0];
+      let m=ehour[1]-shour[1];
+      let temp=[...uptime];
+      setUptime([temp[0]+h,temp[1]+m])
     }
 
     const Addproject=(e)=>{
       e.preventDefault()
       setData([...data,form])
-      setUptime(uptime+1)
+      set();
       onClose();
     }
-    const [shour,setshour]=useState([])
-    const [ehour,setehour]=useState([])
+   
     
     useEffect(()=>{
       setshour(value.trim().split(":").map(Number));
+      setForm({...form,start:shour.join(":")})
     },[value])
     useEffect(()=>{
       setehour(value1.trim().split(":").map(Number));
+      setForm({...form,end:ehour.join(":")})
     },[value1])
       
      
@@ -64,8 +87,8 @@ const Time = () => {
   <Box display={"flex"} gap="10px" border={""}>
       {/*button*/}
       <Flex gap="5px">
-      <Button bg="#17c22e" disabled={play===true}  colorScheme='#17c22e' borderRadius="49%"><FaPlay color='white'/></Button>
-      <Button bg="red" disabled={play===false}  colorScheme='red' borderRadius="49%"><FaStop color='white'/></Button>
+      <Button bg="#17c22e" disabled={play>0}  colorScheme='#17c22e' borderRadius="49%"><FaPlay color='white'/></Button>
+      <Button bg="red" disabled={play<=0}  colorScheme='red' borderRadius="49%"><FaStop color='white'/></Button>
       </Flex>
 
       {/*select Team*/}
@@ -95,7 +118,7 @@ const Time = () => {
 <Box >
     <Text textAlign={"left"}>Total</Text>
     <Flex mt="-2" justifyContent={"space-between"}>
-        <Text fontSize={"3xl"} fontWeight="medium">{uptime?`${uptime}h:0mint`:"0 mint"}</Text>
+        <Text fontSize={"3xl"} fontWeight="medium">{Math.abs(uptime[0])+"h"+":"+Math.abs(uptime[1])+"m" }</Text>
         <Text>...</Text>
     </Flex>
 </Box>
@@ -115,7 +138,7 @@ const Time = () => {
 
     {
       data.map((e)=>{
-        return <ActiveProject props={e} setPlay={setPlay} play={play}/>
+        return <ActiveProject props={e} key={e.id} setPlay={setPlay} play={play} DeleteProject={DeleteProject}/>
       })
     }
     

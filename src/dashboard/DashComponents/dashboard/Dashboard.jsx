@@ -1,9 +1,9 @@
 import React from 'react'
 import  "./dashboard.css";
-import {Link} from "react-router-dom"
 import {BsStopwatch} from "react-icons/bs"
 import {BiNotepad} from "react-icons/bi"
 import {AiOutlineTeam} from "react-icons/ai"
+import {useNavigate} from "react-router-dom"
 import {
   Accordion,
   AccordionItem,
@@ -22,9 +22,17 @@ import {
   Button,
   Text
 } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom';
+import { GoogleLogout } from 'react-google-login';
+
 const Dashboard = () => {
- const navigate=useNavigate();
+  let usersname= JSON.parse(localStorage.getItem("user")) || {name:"user"}
+  const navigate=useNavigate();
+  let handlelogout = ()=>{
+    
+    localStorage.removeItem("user");
+    navigate("/")
+  }
+ 
   return (
       <div border="1px solid" className='main'>
         <Stack  bgColor={"light grey "}>
@@ -61,13 +69,12 @@ const Dashboard = () => {
 
                   <Box>
 
-                  <Button w="100%" bg='#f6f7f8'>
+                  <Button w="100%" bg='#f6f7f8' onClick={()=>navigate('/dashboard/team')}>
                     <Box flex='1' display={'flex'} gap='10px' >
                     <AiOutlineTeam size="1.5rem"/>
-                    <Link 
+                    <Text
                     fontWeight={'550'}
-                    to={'/dashboard/team'}
-                    > Team</Link>
+                    > Team</Text>
                     </Box>
                   </Button>
 
@@ -154,7 +161,7 @@ const Dashboard = () => {
             <Stack mt='200px' >
             <Menu  mt='200px'>
               <MenuButton as={Button}>
-                Shashank kumar
+                {usersname.name}
               </MenuButton>
               <MenuList placement='right-top'  left='130%'>
                 <MenuItem minH="48px">
@@ -162,9 +169,14 @@ const Dashboard = () => {
                   <span>My Profile</span>
                 </MenuItem>
                 <MenuDivider />
-                <MenuItem minH="40px">
+                <MenuItem minH="40px" >
               
-                  <span>Logout</span>
+                <GoogleLogout
+                    clientId='487806808115-u4tnqobdjitv6csr2pom5tdrj5fb8383.apps.googleusercontent.com'
+                    buttonText="Sign Out"
+                    onLogoutSuccess={handlelogout}
+                >
+                </GoogleLogout>
                 </MenuItem>
               </MenuList>
             </Menu>

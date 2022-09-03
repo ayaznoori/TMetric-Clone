@@ -1,6 +1,6 @@
-import {Collapse,Box,Button,useDisclosure,Text, Img, Flex} from '@chakra-ui/react';
+import {Collapse,Box, useDisclosure,Text, Img, Flex} from '@chakra-ui/react';
 import {ArrowForwardIcon} from '@chakra-ui/icons'
-import { useEffect } from 'react';
+ 
 
 export function Showhide(props) {
     const { isOpen, onToggle } = useDisclosure();

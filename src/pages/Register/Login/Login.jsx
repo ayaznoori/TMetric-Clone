@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
 import style from '../Login/Login.module.css'
 import  { useNavigate }  from 'react-router-dom'
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
+import { 
+  FormLabel, 
   Input,
   Text,
-  Button
+  Button,
+  Link
 } from '@chakra-ui/react'
+import GLogin from './glogin';
 const axios = require('axios');
 
 const Login = () => {
-  let [l , setL] = useState(false)
   let navigate = useNavigate()
 
   const [user, setUser] = useState({
@@ -32,8 +30,17 @@ const Login = () => {
 
   const login = () => {
     axios.post('http://localhost:9002/login', user)
+<<<<<<< HEAD
     .then((res) => { if(res.data.message == "Login Successfull") {alert(res.data.message);navigate('/dashboard/time')} else {alert(res.data.message)}})
      
+=======
+    .then((res) => { if(res.data.message === "Login Successfull") {
+      alert(res.data.message);
+      navigate('/dashboard/time');
+      localStorage.setItem("user",JSON.stringify({...res.data.user}));
+    } else {alert(res.data.message)}}
+    )
+>>>>>>> f5b433b2bf06131acb5dac5484f33ce06e22c401
      
   }
 
@@ -87,8 +94,7 @@ const Login = () => {
             </div>
 
             <div className={style.lineText}><p>or</p></div>
-
-            <Button padding={3} variant='outline' borderRadius={4} width='100%' size='xs' color='gray' marginBottom={4} colorScheme='gray'> <span><img width={15} src="https://w7.pngwing.com/pngs/249/19/png-transparent-google-logo-g-suite-google-guava-google-plus-company-text-logo.png" alt="google" /></span> <a href="https://www.google.com/">Log in the Google</a></Button>
+            <GLogin/><br/>
             <Button padding={3} variant='outline' borderRadius={4} width='100%' size='xs' color='gray' marginBottom={4} colorScheme='gray'> <span><img width={10} src="https://companieslogo.com/img/orig/MSFT-a203b22d.png?t=1633073277" alt="microsoft" /></span> <a href="https://www.microsoft.com/en-in/">Log in the Microsoft</a></Button>
             <Button padding={3} variant='outline' borderRadius={4} width='100%' size='xs' color='gray' marginBottom={4} colorScheme='gray'> <span><img width={15} src="https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png" alt="apple" /></span> <a href="https://www.apple.com/">Log in the Apple</a></Button>
             <hr />
@@ -99,7 +105,7 @@ const Login = () => {
           </div>
       </div>
       <div className={style.privacy}>
-            <a href="">Privacy Policy</a>
+            <Link href="#">Privacy Policy</Link>
           </div>
     </div>
   )

@@ -1,5 +1,4 @@
 import {
-  Box,
   Flex,
   NumberDecrementStepper,
   NumberIncrementStepper,
@@ -16,12 +15,12 @@ import { TiTick } from "react-icons/ti";
 import { ImCross } from "react-icons/im";
 import React, { useEffect, useState } from "react";
 import styles from "./pricing.module.css";
-
+import db from "../../db"
 const PricingComponent = () => {
   const [value, setValue] = React.useState(1);
   const [data, setData] = useState([]);
   const [isMonthly, setIsMonthly] = useState(true);
-  console.log(value);
+ 
   const handleChange = (value) => setValue(value);
   const handleSwitchChange = () => {
     if(isMonthly == true){
@@ -31,7 +30,7 @@ const PricingComponent = () => {
       setIsMonthly(true)
     }
   };
-  console.log(isMonthly)
+   
   const benefits = [
     "Time Tracking",
     "Unlimited projects and clients",
@@ -56,9 +55,8 @@ const PricingComponent = () => {
     "Team Dashboard",
   ];
   useEffect(() => {
-    fetch("http://localhost:8080/pricing")
-      .then((res) => res.json())
-      .then((data) => setData(data));
+     setData(db().pricing)
+ 
   }, []);
   return (
     <div>
