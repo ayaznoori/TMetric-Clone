@@ -120,7 +120,7 @@ const Task = () => {
             </HStack>
             <HStack>
               {menu.map((l)=>(
-                <Menu_component key={`${l}`} name={l} />
+                <Menu_component key={`${l}`} name={l} users={users} />
               ))}
             </HStack>
         </Stack>
@@ -129,7 +129,7 @@ const Task = () => {
           <HStack justifyContent={'space-between'} alignItems={'center'} p="0.5rem" borderRadius={"10px"}  boxShadow=' rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px' >
             
             <HStack  >
-              <Button onClick={()=> {handleclick()}} _hover={{bg:"x"}}  bg='blue' color='white' ><i class="fa-solid fa-plus"></i> &nbsp; New Tak</Button>
+              <Button onClick={()=> {handleclick()}} _hover={{bg:"x"}}  bg='blue' color='white' ><i class="fa-solid fa-plus"></i> &nbsp; New Task</Button>
               <Menu_component name='Sort :Project' />
             </HStack>
             <Stack>

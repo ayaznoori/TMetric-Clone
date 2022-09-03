@@ -38,8 +38,8 @@ const Work = ({wrk,handletoggle,handlered}) => {
               <HStack>
                 <h4>Due Date</h4>
                 <HStack pl='25px' >
-                  <Image src='https://cdn5.vectorstock.com/i/1000x1000/51/09/calendar-icon-vector-22895109.jpg' w='20px' h='20px' />
-                  <h4>None</h4>
+                  {/* <Image src='https://cdn5.vectorstock.com/i/1000x1000/51/09/calendar-icon-vector-22895109.jpg' w='20px' h='20px' /> */}
+                  <Input type='date' />
                 </HStack>
               </HStack>
               <Divider/>

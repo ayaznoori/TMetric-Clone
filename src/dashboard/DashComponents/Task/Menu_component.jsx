@@ -28,6 +28,27 @@ const Menu_component = (props) => {
                     ))}
                    
                   </Select>
+                  ):props.name=="Project" ? (
+                    <Menu  >
+                  <MenuButton as={Button} rightIcon={<ChevronDownIcon />} border='none' > 
+                    {props.name}
+                  </MenuButton>
+                  
+                  <MenuList>
+                  
+                  
+                    {props.users.map((l)=>(
+                      <MenuItem minH='40px' key={l.name.length}  >
+                      <span >{l.name}</span>
+                      </MenuItem>
+                      ))}  
+                     
+                 
+                    
+                  
+                    
+                  </MenuList>
+                </Menu>
                   ):(
                     <Menu  >
                   <MenuButton as={Button} rightIcon={<ChevronDownIcon />} border='none' > 
