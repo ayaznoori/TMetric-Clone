@@ -30,18 +30,14 @@ const Login = () => {
 
   const login = () => {
     axios.post('http://localhost:9002/login', user)
-<<<<<<< HEAD
-    .then((res) => { if(res.data.message == "Login Successfull") {alert(res.data.message);navigate('/dashboard/time')} else {alert(res.data.message)}})
+    .then((res) => { if(res.data.message == "Login Successfull") {
+    alert(res.data.message);
+    navigate('/dashboard/time')
+    localStorage.setItem("user",JSON.stringify({...res.data.user}));
+    }
+    else { alert(res.data.message) } }
      
-=======
-    .then((res) => { if(res.data.message === "Login Successfull") {
-      alert(res.data.message);
-      navigate('/dashboard/time');
-      localStorage.setItem("user",JSON.stringify({...res.data.user}));
-    } else {alert(res.data.message)}}
-    )
->>>>>>> f5b433b2bf06131acb5dac5484f33ce06e22c401
-     
+  )  
   }
 
   return (
