@@ -29,14 +29,14 @@ const Signup = () => {
 
   const register = () => {
     const { name, email, password } = user
-    if(name && email && password) {
+    if(name && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) && password ) {
       axios.post('http://localhost:9002/signup', user)
-      .then(res => console.log(res))
+      .then(res => {})
       alert('signup successful');
       navigate('/login')
     }
     else {
-      alert('error')
+      alert('Invalid Email entered')
     }
   }
 

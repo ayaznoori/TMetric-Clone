@@ -29,14 +29,15 @@ const Login = () => {
   }
 
   const login = () => {
+    if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.email))
     axios.post('http://localhost:9002/login', user)
     .then((res) => { if(res.data.message === "Login Successfull") {
-      alert(res.data.message);
       navigate('/dashboard/time');
       localStorage.setItem("user",JSON.stringify({...res.data.user}));
     } else {alert(res.data.message)}}
-    )
-     
+    );
+    else
+    alert('Incorrect Email Id');     
   }
 
   return (
@@ -48,7 +49,6 @@ const Login = () => {
          </div>
 
          <div className={style.loginContainer_3}>
-          {console.log(user)}
             <div>
               <FormLabel color='rgb(163,126,133)' fontSize='xs'>Email</FormLabel>
               <Input 
