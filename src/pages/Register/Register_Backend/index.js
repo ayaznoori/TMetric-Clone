@@ -1,33 +1,48 @@
 import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
+import {validate} from 'deep-email-validator'
 
+import dotenv from "dotenv";
+
+dotenv.config();
+//taking port and mongodb url from .env file
+
+const port = Number(process.env.PORT);
+const MONGODB_URL  = process.env.MONGODB_URL;
 const app = express()
+app.use(
+    cors({
+      origin: "*",
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      preflightContinue: false,
+      optionsSuccessStatus: 204,
+    })
+  );
 app.use(express.json())
-app.use(express.urlencoded())
-app.use(cors())
+app.use(express.urlencoded()) 
 
 
-mongoose.connect("mongodb://localhost:27017/myLoginRegisterDB", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, () => {
-    console.log("DB connected")
-})
+
+
 
 const userSchema = new mongoose.Schema({
     name: String,
-    email: String,
-    password: String
+    email: {type:String,unique:true},
+    password: {type:String,minlength: 6,maxlength:8}
 })
 
-const User = new mongoose.model("User", userSchema)
+const User = new mongoose.model("userinfo", userSchema)
 
 // app.get('/', (req, res) => {
 //     res.send('sagar pawar')
 // })
 
 // Routes
+app.get("/",(req,res)=>{
+    res.send("connected");
+})
+
 app.post("/login", (req, res)=> {
 
     const { email, password} = req.body
@@ -44,32 +59,44 @@ app.post("/login", (req, res)=> {
     })
 }) 
 
-app.post("/signup", (req, res)=> {
+async function isEmailValid(email) {
+    return validate(email)
+  }
+
+app.post("/signup", async(req, res)=> {
 
     const { name, email, password} = req.body
 
-    User.findOne({email: email}, (err, user) => {
+    let user = await User.findOne({email: email})
         if(user){
             res.send({message: "User already registerd"})
         } else {
-            const user = new User({
-                name,
-                email,
-                password
-            })
-            user.save(err => {
-                if(err) {
-                    res.send(err)
-                } else {
-                    res.send( { message: "Successfully Registered, Please login now." })
-                }
-            })
+            try{
+                const {valid, reason, validators} = await isEmailValid(email)
+                console.log(valid); 
+            if(valid){
+                const user1 = new User({name:name,email:email,password})
+                await user1.save()
+                return res.send({message:"singupsuccessful"});
+            }else{
+                res.send({message:"Invalid Email",messa:"error"})
+            }
+            
+
+            }catch(e){
+                res.send({message:e.message,messa:"error"});
+
+            }
+            
+
         }
-    })
+
     
 }) 
 
-
-app.listen(9002, () => {
-    console.log("BE started at port 9002")
+app.listen(port,async()=>{  
+     
+    await mongoose.connect(`${MONGODB_URL}`) 
+    
+     console.log("server started at port 8080")
 })

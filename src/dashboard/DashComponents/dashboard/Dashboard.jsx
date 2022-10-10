@@ -120,7 +120,7 @@ const Dashboard = () => {
               <AccordionPanel pb={4} _hover={{cursor:'pointer',bg:"rgba(191, 191, 191)"}} >
               <Box display='flex' alignItems={'center'}  gap='5px' >
                   <Image src='https://aux.iconspalace.com/uploads/folder-vector-icon-256.png' w='20px' h='20px' />
-                  <h4 >Projects</h4>
+                  <h4 >Projects</h4>  
                 </Box>
               </AccordionPanel>
               <AccordionPanel pb={4} _hover={{cursor:'pointer',bg:"rgba(191, 191, 191)"}} >

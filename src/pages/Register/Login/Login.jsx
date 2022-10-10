@@ -9,11 +9,13 @@ import {
   Link
 } from '@chakra-ui/react'
 import GLogin from './glogin';
+import Login_failedmodal from './Login_failedmodal';
 const axios = require('axios');
 
 const Login = () => {
   let navigate = useNavigate()
-
+  let [strike,setStrike] = useState(false);
+  let [txt,setTxt] = useState("")
   const [user, setUser] = useState({
     email:'',
     password:""
@@ -29,18 +31,20 @@ const Login = () => {
   }
 
   const login = () => {
-    axios.post('http://localhost:9002/login', user)
+    axios.post('https://git.heroku.com/tmetricclone.git/login', user)
     .then((res) => { if(res.data.message === "Login Successfull") {
       alert(res.data.message);
       navigate('/dashboard/time');
       localStorage.setItem("user",JSON.stringify({...res.data.user}));
-    } else {alert(res.data.message)}}
+    } else {setTxt(res.data.message);setStrike(true)}}
     )
      
   }
-
+console.log(strike);
   return (
+    
     <div className={style.loginContainer}>
+      
       <div  className={style.loginContainer_1}>
          <div className={style.loginContainer_2}>
             <img style={{width:'120px', margin:'auto', marginTop:'20px'}} src="https://roi4cio.com/fileadmin/user_upload/tmetric_logo.png" alt="logo" />
@@ -50,6 +54,7 @@ const Login = () => {
          <div className={style.loginContainer_3}>
           {console.log(user)}
             <div>
+            {strike==true && <Login_failedmodal txt={txt} setStrike={setStrike} c={'red'} />}
               <FormLabel color='rgb(163,126,133)' fontSize='xs'>Email</FormLabel>
               <Input 
                 padding={3} 

@@ -7,10 +7,14 @@ import {
   Text,
   Button
 } from '@chakra-ui/react'
+import Login_failedmodal from '../Login/Login_failedmodal';
 const axios = require('axios');
 
 const Signup = () => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
+  let [strike,setStrike] = useState(false);
+  let [txt,setTxt] = useState("");
+  let [c,setC] = useState('red')
 
   const [user, setUser] = useState({
     name: '',
@@ -27,13 +31,41 @@ const Signup = () => {
      })
   }
 
-  const register = () => {
-    const { name, email, password } = user
+  const register = async() => {
+    const { name, email, password } = user;
+    console.log("user de",name,email,password);
     if(name && email && password) {
-      axios.post('http://localhost:9002/signup', user)
-      .then(res => console.log(res))
-      alert('signup successful');
-      navigate('/login')
+      console.log(user,user);
+      axios.post('https://tmetricclone.herokuapp.com/signup',{
+        name:name,
+        email:email,
+        password:password
+      }) 
+      .then((res) => {
+        console.log(res);
+        if(res.data.messa=="error"){
+          
+          setTxt(res.data.message);
+          setC('red');
+          setStrike(true);
+          console.log(res.message);
+
+        }else if(res.data.message=="User already registerd"){
+          setTxt(res.data.message);
+          setC('green');
+          setStrike(true);
+          console.log(res.message);
+
+        }
+        else{
+          navigate('/login')
+        }
+        
+        
+      }).catch((e)=>{
+        console.log("err",e);
+      })
+      
     }
     else {
       alert('error')
@@ -49,6 +81,7 @@ const Signup = () => {
             <p>Create Your Account</p>
          </div>
          <div className={style.loginContainer_3}>
+          {strike==true && <Login_failedmodal c={c} setStrike={setStrike} txt={txt} />}
             <div>
               <FormLabel color='rgb(163,126,133)' fontSize='xs'>Name</FormLabel>
               <Input 
